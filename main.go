@@ -249,6 +249,7 @@ func createIngress(service core.Service, backend extensions.IngressBackend) *ext
         ObjectMeta: metav1.ObjectMeta {
             Name: ingressname,
             Namespace: service.Namespace,
+	    Annotations: map[string]string{"kubernetes.io/tls-acme": "true"},
         },
         Spec: extensions.IngressSpec {
             TLS: []extensions.IngressTLS{
